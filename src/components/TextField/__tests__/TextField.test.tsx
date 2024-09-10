@@ -1,17 +1,12 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "jest-styled-components";
-import { ThemeProvider } from "styled-components";
 import TextField from "../";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 describe("TextField component", () => {
   it("should render the label and input field", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField id="test-input" label="Label Teste" />
-      </ThemeProvider>
-    );
+    render(<TextField id="test-input" label="Label Teste" />);
 
     const label = screen.getByText("Label Teste");
     const input = screen.getByLabelText("Label Teste");
@@ -21,11 +16,7 @@ describe("TextField component", () => {
   });
 
   it("should render with a mask", async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField id="input" label="CPF" mask="___.___.___-__" />
-      </ThemeProvider>
-    );
+    render(<TextField id="input" label="CPF" mask="___.___.___-__" />);
 
     const input = screen.getByLabelText("CPF");
 
@@ -37,11 +28,7 @@ describe("TextField component", () => {
   });
 
   it("should render without a mask", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField id="input" label="Nome" />
-      </ThemeProvider>
-    );
+    render(<TextField id="input" label="Nome" />);
 
     const input = screen.getByLabelText("Nome");
     userEvent.type(input, "Leonardo");
@@ -50,11 +37,7 @@ describe("TextField component", () => {
   });
 
   it("should display an error message when error is present", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <TextField id="input" label="CPF" error="CPF inválido" />
-      </ThemeProvider>
-    );
+    render(<TextField id="input" label="CPF" error="CPF inválido" />);
 
     const errorMessage = screen.getByText("CPF inválido");
     expect(errorMessage).toBeInTheDocument();
