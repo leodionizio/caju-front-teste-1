@@ -3,31 +3,38 @@ import styled from "styled-components";
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  border: 4px solid #fff;
-  margin: 16px;
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #fff;
+  gap: ${({ theme }) => theme.spacing.small};
+  border: 1px solid ${({ theme }) => theme.colors.backgroundLight};
+  margin: ${({ theme }) => theme.spacing.medium};
+  border-radius: ${({ theme }) => theme.borderRadius};
+  padding: ${({ theme }) => theme.spacing.medium};
+  background-color: ${({ theme }) => theme.colors.backgroundWhite};
+  box-shadow: ${({ theme }) => theme.shadows.small};
+  color: ${({ theme }) => theme.colors.textDark};
+
   h3,
   p {
     margin: 0;
   }
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
 export const IconAndText = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: ${({ theme }) => theme.spacing.small};
 `;
 
 export const Actions = styled.div`
-  margin-top: 8px;
+  margin-top: ${({ theme }) => theme.spacing.small};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  gap: ${({ theme }) => theme.spacing.small};
+
+  div {
+    display: flex;
+    gap: ${({ theme }) => theme.spacing.small};
+  }
 
   svg {
     cursor: pointer;
