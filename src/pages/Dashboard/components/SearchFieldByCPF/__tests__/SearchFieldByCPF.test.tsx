@@ -46,7 +46,6 @@ describe("SearchFieldByCPF component", () => {
       expect(screen.getByText("O CPF digitado é inválido")).toBeInTheDocument();
     });
 
-    // Verifica se getRegistrations não é chamado para CPF inválido
     expect(getRegistrationsMock).not.toHaveBeenCalled();
   });
 
