@@ -73,7 +73,7 @@ export const RegistrationCard = ({ registration }: RegistrationCardProps) => {
   }, [deleteRegistration, registration, showDialog]);
 
   return (
-    <S.Card>
+    <S.Card data-testid="registration-card">
       <S.IconAndText>
         <HiOutlineUser />
         <h3>{registration.employeeName}</h3>
