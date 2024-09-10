@@ -1,41 +1,35 @@
-
+import { useCallback } from "react";
+import { RegistrationStatus } from "~/types/registration";
+import { Column } from "../Column";
 import * as S from "./styles";
-import RegistrationCard from "../RegistrationCard";
+import { ColumnType, ColumnsProps } from "./types";
 
-const allColumns = [
-  { status: 'REVIEW', title: "Pronto para revisar" },
-  { status: 'APPROVED', title: "Aprovado" },
-  { status: 'REPROVED', title: "Reprovado" },
+const allColumns: ColumnType[] = [
+  { status: "REVIEW", title: "Pronto para revisar" },
+  { status: "APPROVED", title: "Aprovado" },
+  { status: "REPROVED", title: "Reprovado" },
 ];
 
-type Props = {
-  registrations?: any[];
-};
-const Collumns = (props: Props) => {
+const Columns = ({ registrations }: ColumnsProps) => {
+  const getRegistrationsByStatus = useCallback(
+    (status: RegistrationStatus) =>
+      registrations?.filter((registration) => registration.status === status),
+    [registrations]
+  );
+
   return (
     <S.Container>
-      {allColumns.map((collum) => {
+      {allColumns.map((column) => {
         return (
-          <S.Column status={collum.status} key={collum.title}>
-            <>
-              <S.TitleColumn status={collum.status}>
-                {collum.title}
-              </S.TitleColumn>
-              <S.CollumContent>
-                {props?.registrations?.map((registration) => {
-                  return (
-                    <RegistrationCard
-                      data={registration}
-                      key={registration.id}
-                    />
-                  );
-                })}
-              </S.CollumContent>
-            </>
-          </S.Column>
+          <Column
+            key={column.title}
+            title={column.title}
+            status={column.status}
+            registrations={getRegistrationsByStatus(column.status)}
+          />
         );
       })}
     </S.Container>
   );
 };
-export default Collumns;
+export default Columns;
