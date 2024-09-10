@@ -6,4 +6,16 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
+export const ActionsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+`;
 
+export const Actions = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+`;
