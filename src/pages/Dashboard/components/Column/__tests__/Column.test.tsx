@@ -1,9 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "jest-styled-components";
 import { Column } from "../";
 import { Registration } from "~/types/registration";
-import { ThemeProvider } from "styled-components";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 // Mock do RegistrationCard
 jest.mock("../../RegistrationCard", () => ({
@@ -34,11 +33,7 @@ describe("Column component", () => {
   ];
 
   it("should render the column title", () => {
-    render(
-       
-        <Column title="Aprovados" status="APPROVED" />
-       
-    );
+    render(<Column title="Aprovados" status="APPROVED" />);
 
     const columnTitle = screen.getByText("Aprovados");
     expect(columnTitle).toBeInTheDocument();
@@ -46,13 +41,11 @@ describe("Column component", () => {
 
   it("should render the correct number of RegistrationCards", () => {
     render(
-       
-        <Column
-          title="Pronto para revisar"
-          status="REVIEW"
-          registrations={mockRegistrations}
-        />
-       
+      <Column
+        title="Pronto para revisar"
+        status="REVIEW"
+        registrations={mockRegistrations}
+      />
     );
 
     const registrationCards = screen.getAllByTestId("registration-card");
