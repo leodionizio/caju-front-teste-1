@@ -4,13 +4,6 @@ import { Column } from "../";
 import { Registration } from "~/types/registration";
 import { render } from "~/utils/test-utils";
 
-jest.mock("../../RegistrationCard", () => ({
-  __esModule: true,
-  default: ({ registration }: { registration: any }) => (
-    <div data-testid="registration-card">{registration.name}</div>
-  ),
-}));
-
 describe("Column component", () => {
   const mockRegistrations: Registration[] = [
     {
