@@ -1,10 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ConfirmationModal } from "../";
 import { ConfirmationDialogContext } from "~/contexts/confirmationDialogContext";
 import { useConfirmationDialog } from "~/hooks/useConfirmationDialog";
-import { ThemeProvider } from "styled-components";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 jest.mock("~/hooks/useConfirmationDialog", () => ({
   useConfirmationDialog: jest.fn(),
@@ -53,16 +52,14 @@ describe("ConfirmationModal component", () => {
 
   it("should render the modal when `show` is true", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <ConfirmationDialogContext.Provider
-          value={{
-            ...providerValueMock,
-            show: true,
-          }}
-        >
-          <ConfirmationModal />
-        </ConfirmationDialogContext.Provider>
-      </ThemeProvider>
+      <ConfirmationDialogContext.Provider
+        value={{
+          ...providerValueMock,
+          show: true,
+        }}
+      >
+        <ConfirmationModal />
+      </ConfirmationDialogContext.Provider>
     );
 
     const modalTitle = screen.getByText("Titulo");
@@ -73,16 +70,14 @@ describe("ConfirmationModal component", () => {
 
   it("should call the confirmAction and closeDialog when confirming", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <ConfirmationDialogContext.Provider
-          value={{
-            ...providerValueMock,
-            show: true,
-          }}
-        >
-          <ConfirmationModal />
-        </ConfirmationDialogContext.Provider>
-      </ThemeProvider>
+      <ConfirmationDialogContext.Provider
+        value={{
+          ...providerValueMock,
+          show: true,
+        }}
+      >
+        <ConfirmationModal />
+      </ConfirmationDialogContext.Provider>
     );
 
     const confirmButton = screen.getByText("Confirmar");
@@ -94,16 +89,14 @@ describe("ConfirmationModal component", () => {
 
   it("should call the cancelAction and closeDialog when canceling", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <ConfirmationDialogContext.Provider
-          value={{
-            ...providerValueMock,
-            show: true,
-          }}
-        >
-          <ConfirmationModal />
-        </ConfirmationDialogContext.Provider>
-      </ThemeProvider>
+      <ConfirmationDialogContext.Provider
+        value={{
+          ...providerValueMock,
+          show: true,
+        }}
+      >
+        <ConfirmationModal />
+      </ConfirmationDialogContext.Provider>
     );
 
     const cancelButton = screen.getByText("Cancelar");
@@ -115,16 +108,14 @@ describe("ConfirmationModal component", () => {
 
   it("should call only closeDialog when canceling if no cancelAction is provided", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <ConfirmationDialogContext.Provider
-          value={{
-            ...providerValueMock,
-            show: true,
-          }}
-        >
-          <ConfirmationModal />
-        </ConfirmationDialogContext.Provider>
-      </ThemeProvider>
+      <ConfirmationDialogContext.Provider
+        value={{
+          ...providerValueMock,
+          show: true,
+        }}
+      >
+        <ConfirmationModal />
+      </ConfirmationDialogContext.Provider>
     );
 
     const cancelButton = screen.getByText("Cancelar");
@@ -135,16 +126,14 @@ describe("ConfirmationModal component", () => {
 
   it("should close the modal when clicking the close icon", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <ConfirmationDialogContext.Provider
-          value={{
-            ...providerValueMock,
-            show: true,
-          }}
-        >
-          <ConfirmationModal />
-        </ConfirmationDialogContext.Provider>
-      </ThemeProvider>
+      <ConfirmationDialogContext.Provider
+        value={{
+          ...providerValueMock,
+          show: true,
+        }}
+      >
+        <ConfirmationModal />
+      </ConfirmationDialogContext.Provider>
     );
 
     const closeIcon = screen.getByTestId("closeButton");

@@ -35,9 +35,9 @@ describe("Column component", () => {
 
   it("should render the column title", () => {
     render(
-      <ThemeProvider theme={theme}>
+       
         <Column title="Aprovados" status="APPROVED" />
-      </ThemeProvider>
+       
     );
 
     const columnTitle = screen.getByText("Aprovados");
@@ -46,13 +46,13 @@ describe("Column component", () => {
 
   it("should render the correct number of RegistrationCards", () => {
     render(
-      <ThemeProvider theme={theme}>
+       
         <Column
           title="Pronto para revisar"
           status="REVIEW"
           registrations={mockRegistrations}
         />
-      </ThemeProvider>
+       
     );
 
     const registrationCards = screen.getAllByTestId("registration-card");

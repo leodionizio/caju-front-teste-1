@@ -1,17 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "jest-styled-components";
-import { ThemeProvider } from "styled-components";
 import { Header } from "../";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 describe("Header component", () => {
   it("should render the header with the correct styles", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <Header>
-          <h1>Test Header</h1>
-        </Header>
-      </ThemeProvider>
+      <Header>
+        <h1>Test Header</h1>
+      </Header>
     );
     const header = screen.getByText("Test Header").closest("header");
     expect(header).toBeInTheDocument();

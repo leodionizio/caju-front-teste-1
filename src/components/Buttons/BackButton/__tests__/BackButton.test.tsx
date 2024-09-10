@@ -1,9 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BackButton } from "../";
 import { useHistory } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 jest.mock("react-router-dom", () => ({
   useHistory: jest.fn(),
@@ -11,11 +10,7 @@ jest.mock("react-router-dom", () => ({
 
 describe("BackButton component", () => {
   it("should render the IconButton with an arrow icon", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <BackButton />
-      </ThemeProvider>
-    );
+    render(<BackButton />);
 
     const button = screen.getByRole("button");
     expect(button).toBeInTheDocument();
@@ -31,11 +26,7 @@ describe("BackButton component", () => {
       goBack: goBackMock,
     });
 
-    render(
-      <ThemeProvider theme={theme}>
-        <BackButton />
-      </ThemeProvider>
-    );
+    render(<BackButton />);
 
     const button = screen.getByRole("button");
     userEvent.click(button);

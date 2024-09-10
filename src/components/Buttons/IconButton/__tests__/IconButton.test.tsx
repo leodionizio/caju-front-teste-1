@@ -1,17 +1,15 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "jest-styled-components";
-import { ThemeProvider } from "styled-components";
 import { IconButton } from "../";
 import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 describe("IconButton component", () => {
   it("should render the IconButton with default props", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <IconButton>
-          <svg>Icon</svg>
-        </IconButton>
-      </ThemeProvider>
+      <IconButton>
+        <svg>Icon</svg>
+      </IconButton>
     );
     const button = screen.getByRole("button");
     expect(button).toBeInTheDocument();
@@ -28,11 +26,9 @@ describe("IconButton component", () => {
 
   it("should render the IconButton with custom colors", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <IconButton color="#ff0000">
-          <svg>Icon</svg>
-        </IconButton>
-      </ThemeProvider>
+      <IconButton color="#ff0000">
+        <svg>Icon</svg>
+      </IconButton>
     );
     const button = screen.getByRole("button");
     expect(button).toHaveStyleRule("border", "2px solid #ff0000");
@@ -43,11 +39,9 @@ describe("IconButton component", () => {
 
   it("should apply hover styles correctly", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <IconButton color="#ff0000">
-          <svg>Icon</svg>
-        </IconButton>
-      </ThemeProvider>
+      <IconButton color="#ff0000">
+        <svg>Icon</svg>
+      </IconButton>
     );
     const button = screen.getByRole("button");
 
@@ -58,11 +52,9 @@ describe("IconButton component", () => {
 
   it("should render the IconButton with default hover styles", () => {
     render(
-      <ThemeProvider theme={theme}>
-        <IconButton>
-          <svg>Icon</svg>
-        </IconButton>
-      </ThemeProvider>
+      <IconButton>
+        <svg>Icon</svg>
+      </IconButton>
     );
     const button = screen.getByRole("button");
 

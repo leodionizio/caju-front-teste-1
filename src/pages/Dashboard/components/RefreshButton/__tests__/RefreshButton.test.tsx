@@ -1,9 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { RefreshButton } from "../";
 import { useRegistration } from "~/hooks/useRegistration";
-import { ThemeProvider } from "styled-components";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 jest.mock("~/hooks/useRegistration");
 
@@ -21,11 +20,7 @@ describe("RefreshButton component", () => {
   });
 
   it("should render the RefreshButton", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RefreshButton />
-      </ThemeProvider>
-    );
+    render(<RefreshButton />);
 
     const button = screen.getByRole("button", { name: /refetch/i });
     expect(button).toBeInTheDocument();
@@ -35,11 +30,7 @@ describe("RefreshButton component", () => {
   });
 
   it("should call getRegistrations when the button is clicked", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RefreshButton />
-      </ThemeProvider>
-    );
+    render(<RefreshButton />);
 
     const button = screen.getByRole("button", { name: /refetch/i });
     userEvent.click(button);

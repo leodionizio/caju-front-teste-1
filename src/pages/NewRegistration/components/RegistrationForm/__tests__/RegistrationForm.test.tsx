@@ -1,9 +1,8 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "jest-styled-components";
-import { ThemeProvider } from "styled-components";
 import { RegistrationForm } from "../";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 describe("RegistrationForm component", () => {
   const onSubmitMock = jest.fn();
@@ -13,11 +12,7 @@ describe("RegistrationForm component", () => {
   });
 
   it("should render the form with all fields", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RegistrationForm onSubmit={onSubmitMock} />
-      </ThemeProvider>
-    );
+    render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const nameInput = screen.getByLabelText("Nome Completo");
     const emailInput = screen.getByLabelText("E-mail");
@@ -33,11 +28,7 @@ describe("RegistrationForm component", () => {
   });
 
   it("should show error message for invalid email", async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RegistrationForm onSubmit={onSubmitMock} />
-      </ThemeProvider>
-    );
+    render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const emailInput = screen.getByLabelText("E-mail");
     userEvent.type(emailInput, "invalid-email");
@@ -53,11 +44,7 @@ describe("RegistrationForm component", () => {
   });
 
   it("should show error message for invalid CPF", async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RegistrationForm onSubmit={onSubmitMock} />
-      </ThemeProvider>
-    );
+    render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const cpfInput = screen.getByLabelText("CPF");
     userEvent.type(cpfInput, "123.456.789-00");
@@ -71,11 +58,7 @@ describe("RegistrationForm component", () => {
   });
 
   it("should submit form with valid data", async () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RegistrationForm onSubmit={onSubmitMock} />
-      </ThemeProvider>
-    );
+    render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const nameInput = screen.getByLabelText("Nome Completo");
     const emailInput = screen.getByLabelText("E-mail");
@@ -96,11 +79,7 @@ describe("RegistrationForm component", () => {
   });
 
   it("should disable the submit button if the form is invalid", () => {
-    render(
-      <ThemeProvider theme={theme}>
-        <RegistrationForm onSubmit={onSubmitMock} />
-      </ThemeProvider>
-    );
+    render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const submitButton = screen.getByRole("button", { name: /cadastrar/i });
     expect(submitButton).toBeDisabled();

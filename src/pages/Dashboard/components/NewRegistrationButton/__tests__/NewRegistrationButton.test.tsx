@@ -1,11 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 import { Router } from "react-router-dom";
 import { NewRegistrationButton } from "../";
 import routes from "~/router/routes";
-import { ThemeProvider } from "styled-components";
-import { theme } from "~/styles/theme";
+import { render } from "~/utils/test-utils";
 
 describe("NewRegistrationButton component", () => {
   it("should render the button", () => {
@@ -13,9 +12,7 @@ describe("NewRegistrationButton component", () => {
 
     render(
       <Router history={history}>
-        <ThemeProvider theme={theme}>
-          <NewRegistrationButton />
-        </ThemeProvider>
+        <NewRegistrationButton />
       </Router>
     );
 
@@ -28,9 +25,7 @@ describe("NewRegistrationButton component", () => {
 
     render(
       <Router history={history}>
-        <ThemeProvider theme={theme}>
-          <NewRegistrationButton />
-        </ThemeProvider>
+        <NewRegistrationButton />
       </Router>
     );
 
