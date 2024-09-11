@@ -19,7 +19,7 @@
     "@fnando/cpf": "^1.0.2",
     "@react-input/mask": "^1.2.5",
     "axios": "^1.7.2",
-    "json-server": "^1.0.0-beta.1",
+    "json-server": "^1.0.0-beta.2",
     "lodash.debounce": "^4.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

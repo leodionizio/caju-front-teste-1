@@ -4814,10 +4814,10 @@ json-schema-traverse@^0.4.1:
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
   integrity sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==
 
-json-server@^1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/json-server/-/json-server-1.0.0-beta.1.tgz#f7b9efe1bddb0affdd12fab308ea0480cd00f184"
-  integrity sha512-xOKYyxkVai66OTFZq5ulAaXYkqiKMbzVED9tRZ+CMg6v6iaSdIVYas5tIjSMw/mYwDL/nJFTCca308gaL0coyA==
+json-server@^1.0.0-beta.2:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/json-server/-/json-server-1.0.0-beta.2.tgz#572081d98a6f6ecb9ee75f915ea08a720aa66642"
+  integrity sha512-ZzBM2jkIeBTYIEW5c8DHWJacRqC+ah2u623SV75JYeZv9eJQ0Rv2rSkc2w3f02xykIDlyQ9aitAUIZnNgYB5BQ==
   dependencies:
     "@tinyhttp/app" "^2.2.3"
     "@tinyhttp/cors" "^2.0.0"
