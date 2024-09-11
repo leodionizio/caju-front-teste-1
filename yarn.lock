@@ -2116,13 +2116,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-loading-overlay@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@types/react-loading-overlay/-/react-loading-overlay-1.0.4.tgz#09708255dacd84adf7fcb7ee396a8bf8aef81df8"
-  integrity sha512-zzdX884CXau6/fuK2VRnE8bNRUT9ZhMRa2hHYw8oQXtr47e2VyeUUhwmMf/fbEVgkSpdXC9rM8xt6qXuPOsqAg==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-router-dom@^5.3.3":
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
