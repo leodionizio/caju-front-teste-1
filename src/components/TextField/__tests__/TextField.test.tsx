@@ -27,11 +27,11 @@ describe("TextField component", () => {
     });
   });
 
-  it("should render without a mask", () => {
+  it("should render without a mask", async () => {
     render(<TextField id="input" label="Nome" />);
 
     const input = screen.getByLabelText("Nome");
-    userEvent.type(input, "Leonardo");
+    await userEvent.type(input, "Leonardo");
 
     expect(input).toHaveValue("Leonardo");
   });

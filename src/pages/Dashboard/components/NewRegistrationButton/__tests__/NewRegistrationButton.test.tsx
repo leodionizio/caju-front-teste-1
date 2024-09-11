@@ -20,7 +20,7 @@ describe("NewRegistrationButton component", () => {
     expect(button).toBeInTheDocument();
   });
 
-  it("should navigate to newRegistration page when the button is clicked", () => {
+  it("should navigate to newRegistration page when the button is clicked", async () => {
     const history = createMemoryHistory();
 
     render(
@@ -30,7 +30,7 @@ describe("NewRegistrationButton component", () => {
     );
 
     const button = screen.getByRole("button", { name: /nova admissão/i });
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(history.location.pathname).toBe(routes.newRegistration);
   });
 });

@@ -58,11 +58,11 @@ describe("RegistrationCard component", () => {
     expect(reviewAgainButton).not.toBeInTheDocument();
   });
 
-  it("should show confirmation dialog when approve is clicked", () => {
+  it("should show confirmation dialog when approve is clicked", async () => {
     render(<RegistrationCard registration={registrationMock} />);
 
     const approveButton = screen.getByText("Aprovar");
-    userEvent.click(approveButton);
+    await userEvent.click(approveButton);
 
     expect(mockShowDialog).toHaveBeenCalledWith({
       title: "Aprovar John Doe",
@@ -71,11 +71,11 @@ describe("RegistrationCard component", () => {
     });
   });
 
-  it("should show confirmation dialog when reprove is clicked", () => {
+  it("should show confirmation dialog when reprove is clicked", async () => {
     render(<RegistrationCard registration={registrationMock} />);
 
     const reproveButton = screen.getByText("Reprovar");
-    userEvent.click(reproveButton);
+    await userEvent.click(reproveButton);
 
     expect(mockShowDialog).toHaveBeenCalledWith({
       title: "Reprovar John Doe",
@@ -84,11 +84,11 @@ describe("RegistrationCard component", () => {
     });
   });
 
-  it("should show confirmation dialog when delete is clicked", () => {
+  it("should show confirmation dialog when delete is clicked", async () => {
     render(<RegistrationCard registration={registrationMock} />);
 
     const deleteIcon = screen.getByTestId("delete-icon");
-    userEvent.click(deleteIcon);
+    await userEvent.click(deleteIcon);
 
     expect(mockShowDialog).toHaveBeenCalledWith({
       title: "Deletar John Doe",
@@ -97,11 +97,11 @@ describe("RegistrationCard component", () => {
     });
   });
 
-  it("should call updateRegistration with correct status when approve is confirmed", () => {
+  it("should call updateRegistration with correct status when approve is confirmed", async () => {
     render(<RegistrationCard registration={registrationMock} />);
 
     const approveButton = screen.getByText("Aprovar");
-    userEvent.click(approveButton);
+    await userEvent.click(approveButton);
 
     const confirmAction = mockShowDialog.mock.calls[0][0].confirmAction;
     confirmAction();
@@ -112,11 +112,11 @@ describe("RegistrationCard component", () => {
     );
   });
 
-  it("should call deleteRegistration when delete is confirmed", () => {
+  it("should call deleteRegistration when delete is confirmed", async () => {
     render(<RegistrationCard registration={registrationMock} />);
 
     const deleteIcon = screen.getByTestId("delete-icon");
-    userEvent.click(deleteIcon);
+    await userEvent.click(deleteIcon);
 
     const confirmAction = mockShowDialog.mock.calls[0][0].confirmAction;
     confirmAction();

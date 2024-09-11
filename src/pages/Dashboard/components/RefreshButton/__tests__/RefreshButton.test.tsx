@@ -29,11 +29,11 @@ describe("RefreshButton component", () => {
     expect(icon).toBeInTheDocument();
   });
 
-  it("should call getRegistrations when the button is clicked", () => {
+  it("should call getRegistrations when the button is clicked", async () => {
     render(<RefreshButton />);
 
     const button = screen.getByRole("button", { name: /refetch/i });
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(getRegistrationsMock).toHaveBeenCalledTimes(1);
   });
 });

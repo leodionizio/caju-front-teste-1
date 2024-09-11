@@ -31,10 +31,10 @@ describe("RegistrationForm component", () => {
     render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const emailInput = screen.getByLabelText("E-mail");
-    userEvent.type(emailInput, "invalid-email");
+    await userEvent.type(emailInput, "invalid-email");
 
     const submitButton = screen.getByRole("button", { name: /cadastrar/i });
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     await waitFor(() => {
       expect(
@@ -47,10 +47,10 @@ describe("RegistrationForm component", () => {
     render(<RegistrationForm onSubmit={onSubmitMock} />);
 
     const cpfInput = screen.getByLabelText("CPF");
-    userEvent.type(cpfInput, "123.456.789-00");
+    await userEvent.type(cpfInput, "123.456.789-00");
 
     const submitButton = screen.getByRole("button", { name: /cadastrar/i });
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     await waitFor(() => {
       expect(screen.getByText("O CPF inserido é inválido")).toBeInTheDocument();
@@ -65,13 +65,13 @@ describe("RegistrationForm component", () => {
     const cpfInput = screen.getByLabelText("CPF");
     const admissionDateInput = screen.getByLabelText("Data de admissão");
 
-    userEvent.type(nameInput, "John Doe");
-    userEvent.type(emailInput, "johndoe@example.com");
-    await userEvent.type(cpfInput, "123.456.789-09", { delay: 1 });
+    await userEvent.type(nameInput, "John Doe");
+    await userEvent.type(emailInput, "johndoe@example.com");
+    await userEvent.type(cpfInput, "12345678909", { delay: 1 });
     await userEvent.type(admissionDateInput, "2024-10-21", { delay: 1 });
 
     const submitButton = screen.getByRole("button", { name: /cadastrar/i });
-    userEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     await waitFor(() => {
       expect(onSubmitMock).toHaveBeenCalledTimes(1);

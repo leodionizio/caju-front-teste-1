@@ -19,7 +19,7 @@ describe("BackButton component", () => {
     expect(icon).toBeInTheDocument();
   });
 
-  it("should call history.goBack when clicked", () => {
+  it("should call history.goBack when clicked", async () => {
     const goBackMock = jest.fn();
 
     (useHistory as jest.Mock).mockReturnValue({
@@ -29,7 +29,7 @@ describe("BackButton component", () => {
     render(<BackButton />);
 
     const button = screen.getByRole("button");
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(goBackMock).toHaveBeenCalledTimes(1);
   });
 });

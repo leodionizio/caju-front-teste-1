@@ -68,7 +68,7 @@ describe("ConfirmationModal component", () => {
     expect(modalText).toBeInTheDocument();
   });
 
-  it("should call the confirmAction and closeDialog when confirming", () => {
+  it("should call the confirmAction and closeDialog when confirming", async () => {
     render(
       <ConfirmationDialogContext.Provider
         value={{
@@ -81,13 +81,13 @@ describe("ConfirmationModal component", () => {
     );
 
     const confirmButton = screen.getByText("Confirmar");
-    userEvent.click(confirmButton);
+    await userEvent.click(confirmButton);
 
     expect(confirmActionMock).toHaveBeenCalledTimes(1);
     expect(closeDialogMock).toHaveBeenCalledTimes(1);
   });
 
-  it("should call the cancelAction and closeDialog when canceling", () => {
+  it("should call the cancelAction and closeDialog when canceling", async () => {
     render(
       <ConfirmationDialogContext.Provider
         value={{
@@ -100,13 +100,13 @@ describe("ConfirmationModal component", () => {
     );
 
     const cancelButton = screen.getByText("Cancelar");
-    userEvent.click(cancelButton);
+    await userEvent.click(cancelButton);
 
     expect(cancelActionMock).toHaveBeenCalledTimes(1);
     expect(closeDialogMock).toHaveBeenCalledTimes(1);
   });
 
-  it("should call only closeDialog when canceling if no cancelAction is provided", () => {
+  it("should call only closeDialog when canceling if no cancelAction is provided", async () => {
     render(
       <ConfirmationDialogContext.Provider
         value={{
@@ -119,12 +119,12 @@ describe("ConfirmationModal component", () => {
     );
 
     const cancelButton = screen.getByText("Cancelar");
-    userEvent.click(cancelButton);
+    await userEvent.click(cancelButton);
 
     expect(closeDialogMock).toHaveBeenCalledTimes(1);
   });
 
-  it("should close the modal when clicking the close icon", () => {
+  it("should close the modal when clicking the close icon", async () => {
     render(
       <ConfirmationDialogContext.Provider
         value={{
@@ -137,7 +137,7 @@ describe("ConfirmationModal component", () => {
     );
 
     const closeIcon = screen.getByTestId("closeButton");
-    userEvent.click(closeIcon);
+    await userEvent.click(closeIcon);
 
     expect(closeDialogMock).toHaveBeenCalledTimes(1);
   });
