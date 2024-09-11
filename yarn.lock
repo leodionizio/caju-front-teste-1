@@ -1147,6 +1147,15 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@dvcode/react-loading-overlay@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@dvcode/react-loading-overlay/-/react-loading-overlay-1.0.2.tgz#fa4140e3dd9f0c73114c2b66665819bd68163795"
+  integrity sha512-d78kVbBsL7/68DWcMU0kaqFMX5fG0f0Wd8w4luOnQOyoIqp9ZTvRFFniYthnkLJqeCElq5mvEqwiF1OuavXqNg==
+  dependencies:
+    emotion "^10.0.1"
+    prop-types "^15.6.2"
+    react-transition-group "^2.5.0"
+
 "@emotion/cache@^10.0.27":
   version "10.0.29"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.29.tgz#87e7e64f412c060102d589fe7c6dc042e6f9d1e0"
@@ -2104,6 +2113,13 @@
   version "18.3.0"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.3.0.tgz#0cbc818755d87066ab6ca74fbedb2547d74a82b0"
   integrity sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-loading-overlay@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-loading-overlay/-/react-loading-overlay-1.0.4.tgz#09708255dacd84adf7fcb7ee396a8bf8aef81df8"
+  integrity sha512-zzdX884CXau6/fuK2VRnE8bNRUT9ZhMRa2hHYw8oQXtr47e2VyeUUhwmMf/fbEVgkSpdXC9rM8xt6qXuPOsqAg==
   dependencies:
     "@types/react" "*"
 
@@ -5410,15 +5426,6 @@ react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
-
-react-loading-overlay@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-loading-overlay/-/react-loading-overlay-1.0.1.tgz#ee3b1ad56c45bb2f1ba46d4820ba0d06cd319a91"
-  integrity sha512-aUjtZ8tNXBSx+MbD2SQs0boPbeTAGTh+I5U9nWjDzMasKlYr58RJpr57c8W7uApeLpOkAGbInExRi6GamNC2bA==
-  dependencies:
-    emotion "^10.0.1"
-    prop-types "^15.6.2"
-    react-transition-group "^2.5.0"
 
 react-refresh@^0.14.2:
   version "0.14.2"

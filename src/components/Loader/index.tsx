@@ -1,8 +1,12 @@
-import { useContext } from "react";
-import LoadingOverlay from "react-loading-overlay";
+import { ReactNode, useContext } from "react";
+import LoadingOverlay from '@dvcode/react-loading-overlay';
 import { LoaderContext } from "~/contexts/loaderContext";
 
-export const Loader = ({ children }) => {
+type LoaderProps = {
+  children: ReactNode;
+};
+
+export const Loader = ({ children }: LoaderProps) => {
   const { show } = useContext(LoaderContext);
 
   return (
