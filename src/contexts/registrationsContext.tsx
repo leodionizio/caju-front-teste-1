@@ -1,4 +1,5 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { CustomContextProviderProps } from "~/types/contextProvider";
 import { Registration } from "~/types/registration";
 
 interface RegistrationsContextType {
@@ -13,7 +14,7 @@ const defaultContextValue: RegistrationsContextType = {
 
 const RegistrationsContext = createContext(defaultContextValue);
 
-const RegistrationsProvider = ({ children }) => {
+const RegistrationsProvider = ({ children }: CustomContextProviderProps) => {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
 
   return (

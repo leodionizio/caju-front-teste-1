@@ -1,4 +1,5 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { CustomContextProviderProps } from "~/types/contextProvider";
 
 interface LoaderContextType {
   show: boolean;
@@ -12,7 +13,7 @@ const defaultContextValue: LoaderContextType = {
 
 const LoaderContext = createContext(defaultContextValue);
 
-const LoaderProvider = ({ children }) => {
+const LoaderProvider = ({ children }: CustomContextProviderProps) => {
   const [show, setShow] = useState(false);
 
   return (

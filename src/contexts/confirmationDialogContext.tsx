@@ -1,5 +1,6 @@
 import { createContext, Dispatch, SetStateAction, useState } from "react";
 import { ConfirmationDialogProps } from "~/types/confirmationDialog";
+import { CustomContextProviderProps } from "~/types/contextProvider";
 
 interface ConfirmationDialogContextType {
   show: boolean;
@@ -19,7 +20,7 @@ const defaultContextValue: ConfirmationDialogContextType = {
 
 const ConfirmationDialogContext = createContext(defaultContextValue);
 
-const ConfirmationDialogProvider = ({ children }) => {
+const ConfirmationDialogProvider = ({ children }: CustomContextProviderProps) => {
   const [show, setShow] = useState(false);
   const [dialogOptions, setDialogOptions] = useState<ConfirmationDialogProps>();
 
