@@ -21,13 +21,13 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Generate release
-        run: yarn run release
-
       - name: Set git user
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate release
+        run: yarn run release
 
       - name: Push version and tags
         run: |
