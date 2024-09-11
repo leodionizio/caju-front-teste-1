@@ -29,9 +29,6 @@ jobs:
       - name: Generate release
         run: yarn run release
 
-      - name: Push version and tags
+      - name: Push changes
         run: |
-          git add .
-          git commit -m "chore(release): release new version"
-          git tag -a v$(node -p -e "require('./package.json').version") -m "Release v$(node -p -e 'require(\"./package.json\").version')"
           git push --follow-tags origin main
