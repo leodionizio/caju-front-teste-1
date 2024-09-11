@@ -24,11 +24,14 @@ jobs:
       - name: Generate release
         run: yarn run release
 
-      - name: Push version and tags
+      - name: Set git user
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push version and tags
+        run: |
           git add .
           git commit -m "chore(release): release new version"
-          git tag -a v$(node -p -e "require('./package.json').version") -m "Release v$(node -p -e "require('./package.json').version")"
+          git tag -a v$(node -p -e "require('./package.json').version") -m "Release v$(node -p -e 'require(\"./package.json\").version')"
           git push --follow-tags origin main
