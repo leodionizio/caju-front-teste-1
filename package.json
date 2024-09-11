@@ -11,7 +11,8 @@
     "test:watch": "jest --watch --verbose --no-cache",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "standard-version"
   },
   "dependencies": {
     "@babel/preset-env": "^7.25.4",

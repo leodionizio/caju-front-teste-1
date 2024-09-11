@@ -1,3 +1,5 @@
-lodash debounce
-fnando/cpf
-https://www.npmjs.com/package/@react-input/mask
+lodash.debounce
+@fnando/cpf
+@react-input/mask
+react-hook-form
+@dvcode/react-loading-overlay
