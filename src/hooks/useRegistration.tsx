@@ -9,6 +9,7 @@ import {
 } from "~/types/registration";
 import { useToastify } from "./useToastify";
 import { useLoader } from "./useLoader";
+import { strip } from "@fnando/cpf";
 
 export const useRegistration = () => {
   const { registrations, setRegistrations } = useContext(RegistrationsContext);
@@ -56,7 +57,10 @@ export const useRegistration = () => {
     async (registration: RegistrationFormData) => {
       showLoader();
       try {
-        await RegistrationService.createRegistration(registration);
+        await RegistrationService.createRegistration({
+          ...registration,
+          cpf: strip(registration.cpf),
+        });
         toast.success("Admissão criada com sucesso!");
       } catch (error) {
         toast.error(error.message);

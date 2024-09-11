@@ -30,7 +30,7 @@ describe("useRegistration hook", () => {
       id: "59b9",
       employeeName: "Leonardo Dionizio",
       email: "leonardo.dionizio@caju.com.br",
-      cpf: "416.498.648-41",
+      cpf: "41649864841",
       admissionDate: "2024-09-18",
       status: "REVIEW",
     },
@@ -117,6 +117,12 @@ describe("useRegistration hook", () => {
 
     expect(showLoaderMock).toHaveBeenCalled();
     expect(RegistrationService.createRegistration).toHaveBeenCalled();
+    expect(RegistrationService.createRegistration).toHaveBeenCalledWith({
+      employeeName: "John Doe",
+      email: "john@example.com",
+      cpf: "12345678900",
+      admissionDate: "2023-09-01",
+    });
     expect(toastMock.success).toHaveBeenCalledWith(
       "Admissão criada com sucesso!"
     );
