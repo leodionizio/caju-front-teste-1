@@ -22,6 +22,8 @@ As seguintes bibliotecas foram escolhidas:
 
 6. **Clarity**: Obter insights, mapas de calor, dentre outras várias funcionalidades que ele oferecepara monitoramento da experiencia dos usuários na aplicação.
 
+7. **LogRocket**: Para monitoria de erros de código, essa ferramenta grava a tela antes do usuário tomar o erro, além de possuir várias outras informações sobre a página.
+
 ## Motivação
 Optei pelo uso das bibliotecas para poupar um pouco de tempo e poder me dedicar mais em tarefas mais complexas.
 
