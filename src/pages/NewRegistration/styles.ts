@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { IconButton } from "~/components/Buttons/IconButton";
-import { Button } from "~/components/Buttons/Button";
 
 export const Container = styled.div`
   display: flex;
@@ -17,13 +15,4 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.medium};
-
-  ${IconButton} {
-    margin-bottom: ${({ theme }) => theme.spacing.small};
-    align-items: flex-start;
-  }
-
-  ${Button} {
-    align-self: flex-end;
-  }
 `;
