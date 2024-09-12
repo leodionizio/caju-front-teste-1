@@ -1,0 +1,41 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Start the application
+        run: yarn run dev &
+        env:
+          CI: true
+
+      - name: Start JSON Server
+        run: yarn run init:db:e2e
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v4
+        with:
+          wait-on: http://localhost:3001
+          browser: chrome
+          headless: true

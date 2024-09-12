@@ -11,5 +11,12 @@ export const NewRegistrationButton = () => {
     [history]
   );
 
-  return <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>;
+  return (
+    <Button
+      onClick={() => goToNewAdmissionPage()}
+      name="newRegistrationButton"
+    >
+      Nova Admissão
+    </Button>
+  );
 };
