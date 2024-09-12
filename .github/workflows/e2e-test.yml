@@ -31,7 +31,7 @@ jobs:
           CI: true
 
       - name: Start JSON Server
-        run: yarn run init:db:e2e
+        run: yarn run init:db:e2e &
         env:
           CI: true
 
