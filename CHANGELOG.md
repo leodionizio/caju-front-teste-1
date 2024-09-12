@@ -2,7 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### 0.0.7 (2024-09-12)
+### [0.0.7](https://github.com/leodionizio/caju-front-teste-1/compare/v0.0.1...v0.0.7) (2024-09-12)
+
+
+### Bug Fixes
+
+* add fix to how to display admission date ([e2071a4](https://github.com/leodionizio/caju-front-teste-1/commit/e2071a45482a956c3615f006f03fc27ef73f2412))
 
 ### 0.0.6 (2024-09-12)
 
