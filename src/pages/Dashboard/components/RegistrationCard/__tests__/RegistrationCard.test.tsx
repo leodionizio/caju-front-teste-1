@@ -43,7 +43,7 @@ describe("RegistrationCard component", () => {
 
     expect(screen.getByText("John Doe")).toBeInTheDocument();
     expect(screen.getByText("john@example.com")).toBeInTheDocument();
-    expect(screen.getByText("2023-09-01")).toBeInTheDocument();
+    expect(screen.getByText("01/09/2023")).toBeInTheDocument();
   });
 
   it("should render the action buttons based on the registration status", () => {

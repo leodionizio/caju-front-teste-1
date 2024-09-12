@@ -10,6 +10,7 @@ import { Button } from "~/components/Buttons/Button";
 import { useRegistration } from "~/hooks/useRegistration";
 import { theme } from "~/styles/theme";
 import { useConfirmationDialog } from "~/hooks/useConfirmationDialog";
+import { getFormattedBrDate } from "~/utils/formattedBrDate";
 import { ActionButtonProps, RegistrationCardProps } from "./types";
 import * as S from "./styles";
 
@@ -84,7 +85,7 @@ export const RegistrationCard = ({ registration }: RegistrationCardProps) => {
       </S.IconAndText>
       <S.IconAndText>
         <HiOutlineCalendar />
-        <span>{registration.admissionDate}</span>
+        <span>{getFormattedBrDate(registration.admissionDate)}</span>
       </S.IconAndText>
       <S.Actions>
         <div>
