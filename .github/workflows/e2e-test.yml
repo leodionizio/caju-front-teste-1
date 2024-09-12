@@ -32,6 +32,8 @@ jobs:
 
       - name: Start JSON Server
         run: yarn run init:db:e2e
+        env:
+          CI: true
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v4
