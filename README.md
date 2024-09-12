@@ -1,105 +1,23 @@
-
 # Caju Front End Teste
 
-Esse é um desafio técnico para você demonstrar suas habilidades como frontend, sua missão será dar continuidade ao desenvolvimento da plataforma de admissão que consiste em duas telas, a tela de `Dashboard` e uma tela de `Cadastro`.
+Esse é o projeto desenvolvido para o desafio técnico da Caju.
+As instruções previamente fornecidas podem ser acessadas em [./docs/instructions.md](./docs/instructions.md).
 
-O `Dashboard` mostra todas as admissões criadas, com as opções de aprovar, reprovar e excluir.
+## Acessar aplicação
 
-![Screenshot 2024-06-11 at 11 48 24 AM](https://github.com/caju-beneficios/caju-front-teste-1/assets/31169925/fedeff5c-a0d3-4df1-aebd-1f2d25c56a48)
+A aplicação está disponível em: https://me-contrata-caju.netlify.app/
 
-Dashboard com a listagem das admissões.
+Utilizando `mockAPI` para mockar a API: https://66e1f52dc831c8811b56d42b.mockapi.io/api
 
-![Screenshot 2024-06-11 at 1 52 35 PM](https://github.com/caju-beneficios/caju-front-teste-1/assets/31169925/3b002341-454b-4b24-82cb-6390656b56cc)
+## Telas da aplicação
 
-A tela de `Cadastro` exibe um formulário simples que será utilizado para criar as admissões.
+Dashboard
 
-![Screenshot 2024-06-11 at 11 48 47 AM](https://github.com/caju-beneficios/caju-front-teste-1/assets/31169925/bbbb211c-165f-40e5-b2af-61adafd61398)
+![Print do dashboard](./docs/assets/dashboard.png)
 
-## Apresentanção do problema
+![Print do cadastro](./docs/assets/new-registration.png)
 
-O desafio é aprimorar o código existente e implementar as funcionalidades que estão incompletas, use a sua experiência para identificar e propor soluções para os problemas encontrados.
-Sinta-se a vontade para refatorar, criar novas pastas, componentes, hooks, utils e o que mais achar necessário para garantir que o projeto esteja organizado e segue as boas práticas de desenvolvimento.
-
-
-## Especificações
-
-### Tela Dashboard
-  
-- Implementar `GET` ao carregar a pagina e ao fazer pequisa por `CPF`
-- Filtrar os cards por coluna, usando o status.
-- Implementar `PUT` ao clicar em Reprovar e alterar o status para `REPROVED`
-- Implementar `PUT` ao clicar em Aprovar e alterar o status para `APPROVED`
-- Implementar `PUT` ao clicar em Revisar novamente e alterar o status para `REVIEW`
-- Implementar `DELETE` ao clicar no lixeira no card.
-- O botão de `Reprovar` e `Aprovar` só deve aparecer em admissões com o status `REVIEW` 
-- O botão `Revisar novamente` só deve aparecer em admissões com o status `REPROVED` ou `APPROVED`
-- Implementar um loading na tela ao realizar requisições.
-- Todas as ações devem ter modal de confirmação e uma notificação de sucesso ou erro
-- Na pesquisa por CPF realizar a requisição automaticamente ao preencher um CPF válido
-- Adicionar máscara de CPF no campo de pesquisa.
-- Atualizar os dados (refetch) ao clicar no ícone de atualizar
-
-
-### Tela Cadastro
-
-- Implementar validação no campo de `email` para que aceite apenas emails válidos
-- Implementar validação no campo `nome completo` para que aceite pelo menos um espaço, no mínimo duas letras, e que a primeira letra não seja um número.
-- Implementar validação no campo CPF para aceitar apenas CPFs válidos e adicionar uma máscara de CPF ao campo.
-- Implementar `POST` ao preencher todos os campos corretamentes.
-- Redirecionar ao `/dashboard` ao criar uma nova admissão.
-
-
-## API
-Você consumirá uma API mockada localmente, que será executada utilizando o json-server. Para mais informações consulte a [documentação](https://github.com/typicode/json-server/).
-
-Exemplo de Requisição:
-
-```
-POST http://localhost:3000/registrations
-Content-Type: application/json
-{
-  "admissionDate": "23/10/2023",
-  "email": "maria@caju.com.br",
-  "employeeName": "Maria Silva",
-  "status": "REVIEW",
-  "cpf": "12345678901"
-}
-```
-
-Para realizar a pesquisa por CPF, utilize essa funcionalidade do json-web-server:
-<br/>
-https://github.com/typicode/json-server/tree/v0?tab=readme-ov-file#filter
-
-
-## Extras (opcional)
-
-- Testes Unitários e de Integração `(Obrigátorio para Senior e Tech Lead)`
-- End-to-End (E2E) 
-- Configuração de CI/CD com deploy automatizado
-
-## Dicas e sugestões
-
-- Faça bom uso da componentização
-- Garanta que a aplicação é performática
-- Faça bom uso do HTML e WAI-ARIA
-- Garanta uma experiência fluida e acessível
-- Utilize conceitos (SOLID, DRY, KISS, Clean code) e design patterns
-- Crie testes coesos e que garantam o bom funcionamento da aplicação
-
-### Sua performance será avaliada com base nos seguintes pontos:
-
-- A aplicação funciona conforme o esperado seguindo todas as especificações
-- O código é claro e de fácil entendimento
-- Conhecimento em HTML, CSS, JavaScript / TypeScript e React
-- Experiência do usuário
-- Arquitetura (conceitos, patterns, algoritmos, forma como os problemas foram solucionados)
-- Boas práticas de desenvolvimento
-- Proeficiência com automação de testes. Não exigimos 100% de cobertura
-- Senso crítico e analítico
-
-`Nos surpreenda demonstrando toda a sua habilidade e conhecimento.`
-
-## Iniciando o desenvolvimento
+## Execução
 
 Realize o clone do repositório e instale as dependências
 
@@ -131,12 +49,32 @@ Aplicação http://localhost:3001/
 <br/>
 Json Web Server http://localhost:3000/
 
-Caso necessite executar a suíte de testes use o comando abaixo:
+## Testes
+
+Executar os testes unitários e de integração
 
 ```shell
-yarn test:dev
+yarn test
 ```
 
+Executar com watch
 
-Para concluir o desenvolvimento faça as edições necessárias e depois envie a URL do novo repositório com suas alterações para o RH.
+```shell
+yarn test:watch
+```
 
+Gerar o coverage da aplicação
+
+```shell
+yarn test:coverage
+```
+
+Executar os testes e2e
+
+```shell
+yarn test:e2e
+```
+
+## Adicionais
+
+Esta aplicação possui um `ADR` que pode ser acessado em [./docs/adr.md](./docs/adr.md).
